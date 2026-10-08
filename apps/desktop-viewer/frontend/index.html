@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1117" />
+    <title>QS · Baugruppen</title>
+  </head>
+  <body>
+    <div id="app">
+      <aside class="catalog-panel">
+        <header class="brand">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span><strong>QS</strong><small>BAUGRUPPEN</small></span>
+        </header>
+
+        <section class="project-picker">
+          <label for="project-select">PROYECTO</label>
+          <select id="project-select" aria-label="Seleccionar proyecto"></select>
+          <div id="project-summary" class="project-summary"></div>
+          <div class="project-actions">
+            <button id="new-project-button" type="button">
+              <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+              Nuevo proyecto
+            </button>
+            <button id="update-project-button" type="button" disabled>
+              <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 19h14"/></svg>
+              Importar IFC
+            </button>
+            <button id="history-project-button" class="history-project-button" type="button" disabled>
+              <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8m0-5v5h5M12 7v5l3 2"/></svg>
+              Revisiones / historial
+            </button>
+            <button id="delete-project-button" class="delete-project-button" type="button" disabled>
+              <svg viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3m3 0-1 14H7L6 7m4 4v6m4-6v6"/></svg>
+              Borrar proyecto
+            </button>
+          </div>
+        </section>
+
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+          <input id="catalog-search" type="search" placeholder="Buscar dibujo o posición" />
+        </div>
+
+        <nav id="drawing-tree" class="drawing-tree" aria-label="Dibujos y posiciones"></nav>
+      </aside>
+
+      <main class="workspace">
+        <header class="workspace-header">
+          <div class="breadcrumbs">
+            <span id="crumb-project">Proyecto</span>
+            <i>/</i>
+            <strong id="crumb-drawing">Dibujo</strong>
+            <i>/</i>
+            <strong id="crumb-position">Posición</strong>
+          </div>
+          <div class="occurrence-control">
+            <select id="occurrence-select" title="Ocurrencia" aria-label="Ocurrencia" disabled>
+              <option>—</option>
+            </select>
+          </div>
+          <div class="revision-control">
+            <select id="revision-select" title="Revisión" aria-label="Revisión" disabled>
+              <option>Rev. 1</option>
+            </select>
+          </div>
+          <div class="view-style-control">
+            <select id="view-style-select" title="Estilo" aria-label="Estilo de visualización 3D">
+              <option value="original">IFC original</option>
+              <option value="steel">Acero neutro</option>
+              <option value="parts">Contraste por pieza</option>
+              <option value="inspection">Inspección ámbar</option>
+            </select>
+          </div>
+          <div class="view-actions">
+            <button id="fit-button" class="icon-button" title="Encajar pieza" aria-label="Encajar pieza">
+              <svg viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M8 21H3v-5m13 5h5v-5"/></svg>
+            </button>
+            <button id="wireframe-button" class="icon-button" title="Vista de aristas" aria-label="Vista de aristas">
+              <svg viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 0v10m9-5-9 5-9-5m0 10 9-5 9 5"/></svg>
+            </button>
+            <button id="cavity-button" class="icon-button active" title="Desactivar realce Cavity" aria-label="Desactivar realce Cavity" aria-pressed="true">
+              <svg viewBox="0 0 24 24"><path d="M4 7c4-4 12-4 16 0M6 11c3-3 9-3 12 0M8 15c2-2 6-2 8 0M10 19c1-1 3-1 4 0"/></svg>
+            </button>
+            <button id="fasteners-button" class="icon-button active" title="Mostrar pernos" aria-label="Mostrar pernos" aria-pressed="true">
+              <svg viewBox="0 0 24 24"><path d="m8 4 4-2 4 2v4l-8 8-4-4 8-8m-5 9 4 4m5-9 4 4-2 2"/><path class="hidden-slash" d="M3 3l18 18"/></svg>
+            </button>
+            <button id="fabrication-marks-button" class="icon-button active" title="Mostrar marcas de fabricación" aria-label="Mostrar marcas de fabricación" aria-pressed="true">
+              <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h7"/><path class="hidden-slash" d="M3 3l18 18"/></svg>
+            </button>
+            <button id="mobile-export-button" class="icon-button" title="Exportar proyecto para Android" aria-label="Exportar proyecto para Android" disabled>
+              <svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M9 5h6M10 18h4M12 8v7m0 0 3-3m-3 3-3-3"/></svg>
+            </button>
+          </div>
+        </header>
+
+        <section id="viewport" class="viewport">
+          <canvas id="viewer-canvas"></canvas>
+          <div id="empty-state" class="empty-state">
+            <div class="empty-cube" aria-hidden="true"></div>
+            <h1>Selecciona una Baugruppe</h1>
+            <p>Elige un dibujo y una posición en el catálogo.</p>
+          </div>
+          <div id="loading-state" class="loading-state" hidden>
+            <span class="loader"></span>
+            <strong>Preparando geometría IFC…</strong>
+            <small>La primera carga genera el modelo 3D</small>
+          </div>
+          <div id="viewer-meta" class="viewer-meta" hidden>
+            <span id="part-count">— piezas</span>
+            <span id="model-size">—</span>
+          </div>
+          <div class="orientation-widget" aria-label="Orientación de los ejes X, Y y Z">
+            <canvas id="orientation-canvas"></canvas>
+            <small>ORIENTACIÓN</small>
+          </div>
+          <article id="part-tooltip" class="part-tooltip" hidden>
+            <header>
+              <small>PIEZA SELECCIONADA</small>
+              <button id="part-tooltip-close" type="button" aria-label="Cerrar información de la pieza">×</button>
+            </header>
+            <strong id="part-tooltip-position">—</strong>
+            <p id="part-tooltip-name"></p>
+            <dl id="part-tooltip-details"></dl>
+          </article>
+          <div id="measure-hint" class="measure-hint" hidden>
+            <span></span><strong id="measure-hint-text">Selecciona el primer punto</strong>
+            <kbd>ESC</kbd>
+          </div>
+        </section>
+      </main>
+
+      <aside class="measure-panel">
+        <header>
+          <div><small>HERRAMIENTAS</small><h2>Revisión de taller</h2></div>
+          <span id="measurement-count" class="count-badge">0</span>
+        </header>
+
+        <section id="measurement-tools" class="tool-section">
+          <button id="measure-button" class="measure-button" disabled>
+            <svg viewBox="0 0 24 24"><path d="m4 16 12-12 4 4L8 20H4v-4Zm9-9 4 4m-7-1 2 2m-5 1 2 2"/></svg>
+            <span><strong>Nueva cota</strong><small>Selecciona dos puntos</small></span>
+          </button>
+
+          <div class="measurement-snap">
+            <span>AJUSTE DE PUNTOS</span>
+            <div role="group" aria-label="Ajuste de los puntos de cota">
+              <button id="measure-snap-vertex-button" type="button" aria-pressed="false" disabled
+                      title="Ajustar al vértice físico más próximo">
+                <svg viewBox="0 0 24 24"><path d="m12 4 8 8-8 8-8-8 8-8Z"/><circle cx="12" cy="12" r="2"/></svg>
+                Vértices
+              </button>
+              <button id="measure-snap-edge-button" type="button" aria-pressed="false" disabled
+                      title="Ajustar al punto más próximo de una arista física">
+                <svg viewBox="0 0 24 24"><path d="M4 17 20 7"/><circle cx="4" cy="17" r="2"/><circle cx="20" cy="7" r="2"/></svg>
+                Aristas
+              </button>
+            </div>
+            <small id="measure-snap-status">Ajuste desactivado</small>
+          </div>
+
+          <div class="measure-note">
+            Las medidas se guardan en milímetros y en la ocurrencia seleccionada.
+          </div>
+
+          <div id="measurement-list" class="measurement-list">
+            <div class="no-measurements">
+              <span>↗</span>
+              <strong>Sin cotas</strong>
+              <small>Activa “Nueva cota” para medir sobre la pieza.</small>
+            </div>
+          </div>
+
+          <button id="delete-all-button" class="delete-all" disabled>
+            <svg viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3m3 0-1 14H7L6 7m4 4v6m4-6v6"/></svg>
+            Borrar todas las cotas
+          </button>
+        </section>
+
+      </aside>
+    </div>
+    <div id="toast" class="toast" role="status"></div>
+
+    <dialog id="import-dialog" class="import-dialog">
+      <form id="import-form">
+        <header>
+          <div>
+            <small id="import-kicker">PROYECTO</small>
+            <h2 id="import-title">Crear proyecto</h2>
+          </div>
+          <button id="import-close-button" class="dialog-close" type="button" aria-label="Cerrar">×</button>
+        </header>
+        <p id="import-description">Selecciona un IFC para crear el catálogo inicial.</p>
+        <label id="project-name-field" class="form-field">
+          <span>Nombre del proyecto</span>
+          <input id="new-project-name" name="project_name" maxlength="120" autocomplete="off" />
+        </label>
+        <label class="file-field">
+          <input id="ifc-file" name="ifc" type="file" accept=".ifc" required />
+          <svg viewBox="0 0 24 24"><path d="M12 16V4m0 0 4 4m-4-4L8 8M5 14v5h14v-5"/></svg>
+          <span><strong>Seleccionar archivo IFC</strong><small id="file-name">Hasta 2 GB</small></span>
+        </label>
+        <div id="import-progress" class="import-progress" hidden>
+          <span class="loader"></span>
+          <span><strong>Analizando Baugruppen…</strong><small>Comparando geometría y creando revisiones</small></span>
+        </div>
+        <p id="import-error" class="import-error" hidden></p>
+        <footer>
+          <button id="import-cancel-button" type="button" class="secondary-button">Cancelar</button>
+          <button id="import-submit-button" type="submit" class="primary-button">Crear proyecto</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <dialog id="history-dialog" class="import-dialog history-dialog">
+      <section>
+        <header>
+          <div>
+            <small>REVISIONES DEL PROYECTO</small>
+            <h2>Historial de importaciones IFC</h2>
+          </div>
+          <button id="history-close-button" class="dialog-close" type="button" aria-label="Cerrar">×</button>
+        </header>
+        <p class="history-policy"><strong>Cómo borrar revisiones</strong> Deshaz la última importación IFC. Se eliminarán juntas sólo las revisiones creadas por ese archivo y se restaurará el estado anterior. El IFC inicial no se deshace; para empezar desde cero usa «Borrar proyecto».</p>
+        <div id="history-list" class="history-list"></div>
+        <footer>
+          <button id="history-done-button" type="button" class="secondary-button">Cerrar</button>
+        </footer>
+      </section>
+    </dialog>
+
+    <dialog id="mobile-export-dialog" class="import-dialog mobile-export-dialog">
+      <form id="mobile-export-form">
+        <header>
+          <div>
+            <small>ANDROID · SIN CONEXIÓN</small>
+            <h2>Exportar proyecto</h2>
+          </div>
+          <button id="mobile-export-close-button" class="dialog-close" type="button" aria-label="Cerrar">×</button>
+        </header>
+        <p>Crea el <code>.qsproject</code> del teléfono y los targets CAD correspondientes. Si este PC ya está configurado como servidor GPU, los registra automáticamente.</p>
+        <label class="export-mode-option">
+          <input id="mobile-export-complete" type="radio" name="mobile-export-mode" value="COMPLETE" checked />
+          <span><strong>Proyecto completo</strong><small>Todas las Zeichnungen, Baugruppen y datos de revisión disponibles.</small></span>
+        </label>
+        <label class="export-mode-option">
+          <input id="mobile-export-drawings" type="radio" name="mobile-export-mode" value="DRAWINGS" />
+          <span><strong>Por Zeichnung</strong><small>Selecciona uno o varios dibujos completos.</small></span>
+        </label>
+        <label class="export-mode-option">
+          <input id="mobile-export-assemblies" type="radio" name="mobile-export-mode" value="ASSEMBLIES" />
+          <span><strong>Por Baugruppe</strong><small>Selecciona posiciones concretas de uno o varios dibujos.</small></span>
+        </label>
+        <div id="mobile-export-selection-list" class="mobile-export-selection-list" aria-label="Elementos para exportar"></div>
+        <p class="mobile-export-revision-note">Las revisiones no se seleccionan como alcance: se incluyen las disponibles dentro de cada Zeichnung o Baugruppe. Las futuras se incorporarán al volver a exportarla.</p>
+        <div id="mobile-export-progress" class="import-progress" hidden>
+          <span class="loader"></span>
+          <span class="mobile-export-progress-copy">
+            <strong id="mobile-export-progress-title">Preparando la exportación…</strong>
+            <small id="mobile-export-progress-detail">Calculando el trabajo necesario.</small>
+            <span class="mobile-export-progress-track"><i id="mobile-export-progress-bar"></i></span>
+          </span>
+        </div>
+        <p id="mobile-export-error" class="import-error" hidden></p>
+        <footer>
+          <button id="mobile-export-cancel-button" type="button" class="secondary-button">Cancelar</button>
+          <button id="mobile-export-submit-button" type="submit" class="primary-button">Exportar</button>
+        </footer>
+      </form>
+    </dialog>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

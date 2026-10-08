@@ -1,0 +1,69 @@
+# Open-Source-Lizenzen und Drittanbieterhinweise
+
+QS Taller XR verwendet Bibliotheken und Dienste Dritter. Die folgenden Hinweise betreffen diese Komponenten; sie stellen die eigene App oder Ihre Projektdateien nicht unter eine neue Lizenz. Stand des Komponentenverzeichnisses: QS Taller XR 0.22.1, 20.09.2026.
+
+## Apache License 2.0
+
+- SceneView, ARSceneView und SceneView Core 4.18.0 – https://github.com/SceneView/sceneview/tree/v4.18.0
+- Google Filament, Filament Utils und gltfio 1.71.5 – https://github.com/google/filament/tree/v1.71.5
+- AndroidX und Jetpack Compose (Android Open Source Project), unter anderem Core 1.18.0, Activity 1.13.0, Lifecycle 2.10.0, Compose UI/Foundation 1.11.2, Material 3 1.4.0, Material Icons 1.7.8 und Core Splashscreen 1.0.1 – https://android.googlesource.com/platform/frameworks/support/
+- Kotlin Standard Library 2.3.21 und weitere Kotlin-Laufzeitmodule (JetBrains und Mitwirkende) – https://github.com/JetBrains/kotlin
+- kotlinx.coroutines 1.11.0 – https://github.com/Kotlin/kotlinx.coroutines
+- kotlinx.serialization 1.11.0 – https://github.com/Kotlin/kotlinx.serialization
+- kotlin-math 1.8.0 (Romain Guy und Mitwirkende) – https://github.com/romainguy/kotlin-math
+- Guava ListenableFuture 1.0 (Google und Mitwirkende) – https://github.com/google/guava
+- JetBrains Java Annotations 23.0.0 – https://github.com/JetBrains/java-annotations
+- JSpecify 1.0.0 – https://github.com/jspecify/jspecify
+
+Der vollständige Text der Apache License 2.0 folgt im Lizenzanhang. Native Unterkomponenten von Filament haben zum Teil eigene Lizenzen; ihre Originalhinweise sind zusätzlich im Abschnitt „Native Drittanbieterhinweise“ enthalten.
+
+## MIT License
+
+Fuel, Fuel Android und Fuel Coroutines 2.3.1: Copyright (c) 2018 Kittinun Vantasin. Result 3.1.0: Copyright (c) 2017 Kittinun Vantasin. Diese transitiven Abhängigkeiten werden über SceneView eingebunden. Ihre Einbindung bedeutet nicht, dass QS Taller XR Online-Projekte oder einen Analysedienst verwendet; die App hat keine Internetberechtigung.
+
+Fuel-Quellcode und Lizenz: https://github.com/kittinunf/fuel/tree/2.3.1
+Result-Quellcode und Lizenz: https://github.com/kittinunf/result/tree/3.1.0
+Die unveränderten MIT-Lizenztexte mit den jeweiligen Copyright-Vermerken folgen im Lizenzanhang.
+
+## Mozilla Public License 2.0 – web-ifc
+
+web-ifc 0.0.77 (That Open Company und Mitwirkende) wird für den lokalen IFC-Import verwendet. Die eingebundenen Dateien web-ifc-api-iife.js und web-ifc.wasm sind unverändert gegenüber dem veröffentlichten npm-Paket dieser Version.
+
+Die MPL-2.0-Rechte gelten für die betreffenden Bibliotheksdateien. Der zugehörige Quellcode ist kostenlos unter dem exakten Veröffentlichungsstand erhältlich:
+https://github.com/ThatOpen/engine_web-ifc/tree/f26c4beef0a668ebdb180d2b95a94097a1e21cef
+
+Quellcode als Archiv:
+https://github.com/ThatOpen/engine_web-ifc/archive/f26c4beef0a668ebdb180d2b95a94097a1e21cef.zip
+
+Die Mozilla Public License 2.0 folgt vollständig im Lizenzanhang. Sie können die Bibliothek nach ihren Bedingungen verwenden, ändern und weitergeben. Weitere Hinweise der Ursprungsdateien bleiben bestehen.
+
+## Native Bestandteile des IFC-Importers
+
+web-ifc enthält unter anderem fast_float, TinyNURBS, GLM, earcut, CDT, spdlog und stduuid. Die unveränderten Lizenz- und Copyright-Texte sind im Abschnitt „Native Drittanbieterhinweise“ enthalten; die dortigen Quellverweise nennen den jeweiligen exakten Stand. Alternative Lizenzangebote in Originaltexten betreffen ausschließlich die bezeichnete Komponente.
+
+CDT unterliegt ebenfalls der Mozilla Public License 2.0. Sein zugehöriger Quellcode ist kostenlos verfügbar:
+https://github.com/artem-ogre/CDT/tree/4d0c9026b8ec846fe544897e7111f8f9080d5f8a
+
+## Google Play-Dienste für AR (ARCore)
+
+Eingebundenes Android-SDK: com.google.ar:core 1.54.0. Der separat installierte Google-AR-Dienst kann eine andere Versionsnummer haben. Für SDK und Dienst gelten die jeweiligen Bedingungen von Google, insbesondere die Google APIs Terms of Service und die ARCore Additional Terms of Service:
+https://developers.google.com/ar/develop/terms
+
+This application runs on Google Play Services for AR (ARCore), which is provided by Google LLC and governed by the Google Privacy Policy.
+
+Datenschutzerklärung: https://policies.google.com/privacy
+Die Lizenz eines öffentlich verfügbaren Beispielprojekts ersetzt nicht die Nutzungsbedingungen des SDK oder Dienstes.
+
+## Huawei AR Engine (nur experimentelle Debug-Ausgabe)
+
+Die Google-Play-Ausgabe enthält dieses SDK nicht. Die separate experimentelle Debug-Ausgabe bindet arenginesdk 4.0.0.5 ein. Der Huawei-AR-Dienst muss dort separat auf einem kompatiblen Gerät vorhanden sein. SDK und Dienst unterliegen den jeweiligen Bedingungen von Huawei:
+https://developer.huawei.com/consumer/en/hms/huawei-arengine/
+
+Der Kameraadapter orientiert sich am offiziellen Beispielprojekt, Copyright 2023 Huawei Technologies Co., Ltd., Apache License 2.0:
+https://github.com/HMS-Core/hms-AREngine-demo
+
+Die Apache-Lizenz des Beispiels wird nicht als Lizenz des proprietären Huawei-SDK ausgegeben. Datenschutz und Datenverarbeitung der AR-Dienste sind in der Datenschutzerklärung von QS Taller XR beschrieben.
+
+## Android-Systemkomponenten
+
+Android-System-WebView, Dateiauswahl, Medienverwaltung, PDF-Ausgabe und weitere Betriebssystemdienste werden vom Gerät bereitgestellt. Die System-WebView ist kein von QS Taller XR separat mitgelieferter Browser. Für diese Komponenten gelten die mit dem jeweiligen System verteilten Hinweise.

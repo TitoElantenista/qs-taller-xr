@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Only the staged copies for the share sheet: a report PDF under its proper file name. -->
+<paths>
+    <cache-path name="share" path="share/" />
+</paths>

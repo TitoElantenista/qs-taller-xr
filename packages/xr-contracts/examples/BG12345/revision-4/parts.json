@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0.0",
+  "assemblyGuid": "33333333-3333-4333-8333-333333333333",
+  "parts": [
+    {
+      "guid": "44444444-4444-4444-8444-444444444444",
+      "positionNumber": "P1001",
+      "kind": "MAIN_PART",
+      "gltfNodeName": "part:44444444-4444-4444-8444-444444444444",
+      "boundsAssemblyM": {
+        "min": [0, -0.15, -0.15],
+        "max": [6, 0.15, 0.15]
+      },
+      "inspectable": true,
+      "properties": {
+        "profile": "HEA300",
+        "material": "S355"
+      }
+    },
+    {
+      "guid": "55555555-5555-4555-8555-555555555555",
+      "positionNumber": "PL1001",
+      "kind": "PLATE",
+      "gltfNodeName": "part:55555555-5555-4555-8555-555555555555",
+      "boundsAssemblyM": {
+        "min": [5.98, -0.25, -0.2],
+        "max": [6, 0.25, 0.2]
+      },
+      "inspectable": true,
+      "properties": {
+        "thicknessMm": 20,
+        "material": "S355"
+      }
+    }
+  ]
+}
+

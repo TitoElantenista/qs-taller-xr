@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.QSTallerXR" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">#071019</item>
+        <item name="android:navigationBarColor">#071019</item>
+        <item name="android:windowBackground">@color/qs_background</item>
+        <item name="android:windowActionModeOverlay">true</item>
+    </style>
+
+    <!-- Shown by the system from the first frame until the project list is ready. -->
+    <style name="Theme.QSTallerXR.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/qs_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="postSplashScreenTheme">@style/Theme.QSTallerXR</item>
+    </style>
+</resources>

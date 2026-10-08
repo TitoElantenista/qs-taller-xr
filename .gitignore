@@ -1,0 +1,43 @@
+# Public repository: only the paths allowed below are published.  Everything else stays on this
+# PC: customer IFC models and photos, signing keys, provider data, local project data, toolchains,
+# release binaries and the internal development notes.
+/*
+!/.gitignore
+!/README.md
+!/apps/
+!/packages/
+
+/apps/*
+!/apps/mobile-android/
+!/apps/desktop-viewer/
+
+/packages/*
+!/packages/xr-contracts/
+
+# Android app: secrets, provider data, local paths, release binaries, vendor SDK, customer fixture
+/apps/mobile-android/keystore.properties
+/apps/mobile-android/legal.properties
+/apps/mobile-android/local.properties
+/apps/mobile-android/releases/
+/apps/mobile-android/app/libs/
+/apps/mobile-android/app/src/test/resources/importer/traeger.*
+/apps/mobile-android/.kotlin/
+/apps/mobile-android/NOTAS-INTERNAS.md
+/apps/mobile-android/store/
+/apps/mobile-android/tools/build-play-store-kit.py
+
+# Generated or local everywhere
+**/build/
+**/.gradle/
+**/node_modules/
+**/dist/
+**/__pycache__/
+**/*.egg-info/
+**/.pytest_cache/
+**/.venv/
+*.jks
+*.keystore
+*.log
+.DS_Store
+.idea/
+.vscode/

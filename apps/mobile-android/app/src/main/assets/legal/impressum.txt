@@ -1,0 +1,19 @@
+# Impressum
+
+## Angaben gemäß § 5 DDG
+
+{{provider.block}}
+
+## Kontakt
+
+{{provider.contact}}
+
+{{provider.optional}}
+
+## Verbraucherstreitbeilegung
+
+Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+
+## Haftung und bestimmungsgemäßer Gebrauch
+
+QS Taller XR ist ein Hilfsmittel zur visuellen Kontrolle in der Werkstatt. Die AR-Überlagerung ist keine Messung und kein automatisches Abnahmekriterium. Maßgeblich bleiben die freigegebenen Fertigungsunterlagen und die Prüfung durch fachkundiges Personal.

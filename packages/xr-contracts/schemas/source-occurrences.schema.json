@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.qs-xr.invalid/v1/source-occurrences.schema.json",
+  "title": "QS XR source assembly occurrences",
+  "type": "object",
+  "required": ["schemaVersion", "assemblyPositionNumber", "occurrences"],
+  "properties": {
+    "schemaVersion": {
+      "$ref": "common.schema.json#/$defs/schemaVersion"
+    },
+    "assemblyPositionNumber": {
+      "$ref": "common.schema.json#/$defs/nonEmptyString"
+    },
+    "occurrences": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "sourceGlobalId",
+          "guid",
+          "name",
+          "memberCount",
+          "modelFromAssembly",
+          "properties"
+        ],
+        "properties": {
+          "sourceGlobalId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "guid": {
+            "$ref": "common.schema.json#/$defs/uuid"
+          },
+          "name": {
+            "type": ["string", "null"]
+          },
+          "memberCount": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "modelFromAssembly": {
+            "$ref": "common.schema.json#/$defs/matrix4x4"
+          },
+          "properties": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "common.schema.json#/$defs/jsonValue"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
+

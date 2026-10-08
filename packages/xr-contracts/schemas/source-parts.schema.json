@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.qs-xr.invalid/v1/source-parts.schema.json",
+  "title": "QS XR normalized source parts",
+  "type": "object",
+  "required": ["schemaVersion", "assemblyPositionNumber", "parts"],
+  "properties": {
+    "schemaVersion": {
+      "$ref": "common.schema.json#/$defs/schemaVersion"
+    },
+    "assemblyPositionNumber": {
+      "$ref": "common.schema.json#/$defs/nonEmptyString"
+    },
+    "parts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "sourceGlobalId",
+          "assemblySourceGlobalId",
+          "guid",
+          "sourceClass",
+          "name",
+          "description",
+          "objectType",
+          "tag",
+          "typeName",
+          "materials",
+          "propertySets",
+          "quantities"
+        ],
+        "properties": {
+          "sourceGlobalId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "assemblySourceGlobalId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "guid": {
+            "$ref": "common.schema.json#/$defs/uuid"
+          },
+          "sourceClass": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": { "type": ["string", "null"] },
+          "description": { "type": ["string", "null"] },
+          "objectType": { "type": ["string", "null"] },
+          "tag": { "type": ["string", "null"] },
+          "typeName": { "type": ["string", "null"] },
+          "materials": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": { "type": "string" }
+          },
+          "propertySets": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "common.schema.json#/$defs/jsonValue"
+            }
+          },
+          "quantities": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "common.schema.json#/$defs/jsonValue"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

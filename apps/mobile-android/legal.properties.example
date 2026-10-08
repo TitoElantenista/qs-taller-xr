@@ -1,0 +1,21 @@
+# Kopieren nach legal.properties (wird NICHT eingecheckt) und ausfüllen.
+# Angaben des Anbieters für Impressum (§ 5 DDG) und Datenschutzerklärung (Art. 13 DSGVO).
+# Diese Werte erscheinen in der App unter "Über die App". Ein Release-Build (Play Store) schlägt
+# fehl, solange die Pflichtfelder leer sind; Debug-Builds funktionieren auch ohne diese Datei.
+# Keine Geheimnisse eintragen: alles hier wird öffentlich.
+
+provider.name=
+provider.street=
+provider.city=
+provider.country=
+provider.email=
+
+# Optional: nur ausfüllen, wenn vorhanden.
+provider.phone=
+provider.representative=
+provider.register=
+provider.vatId=
+
+# Pflicht für Google Play: öffentlich erreichbare URL der Datenschutzerklärung.
+privacy.url=
+privacy.date=

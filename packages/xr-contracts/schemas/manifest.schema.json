@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.qs-xr.invalid/v1/manifest.schema.json",
+  "title": "QS XR package manifest",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "packageId",
+    "createdAt",
+    "producer",
+    "project",
+    "assembly",
+    "coordinateSystem",
+    "files"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "2.0.0" },
+    "packageId": {
+      "$ref": "common.schema.json#/$defs/uuid"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "producer": {
+      "$ref": "common.schema.json#/$defs/producer"
+    },
+    "project": {
+      "type": "object",
+      "required": ["projectId", "name"],
+      "properties": {
+        "projectId": {
+          "$ref": "common.schema.json#/$defs/uuid"
+        },
+        "name": {
+          "$ref": "common.schema.json#/$defs/nonEmptyString"
+        }
+      },
+      "additionalProperties": false
+    },
+    "assembly": {
+      "type": "object",
+      "required": ["guid", "positionNumber", "revision"],
+      "properties": {
+        "guid": {
+          "$ref": "common.schema.json#/$defs/uuid"
+        },
+        "positionNumber": {
+          "$ref": "common.schema.json#/$defs/nonEmptyString"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "coordinateSystem": {
+      "type": "object",
+      "required": [
+        "handedness",
+        "upAxis",
+        "linearUnit",
+        "matrixStorage",
+        "vectorConvention",
+        "transformNotation"
+      ],
+      "properties": {
+        "handedness": { "const": "RIGHT_HANDED" },
+        "upAxis": { "const": "Y" },
+        "linearUnit": { "const": "m" },
+        "matrixStorage": { "const": "COLUMN_MAJOR" },
+        "vectorConvention": { "const": "COLUMN_VECTOR" },
+        "transformNotation": { "const": "PARENT_FROM_CHILD" }
+      },
+      "additionalProperties": false
+    },
+    "files": {
+      "type": "object",
+      "required": [
+        "model",
+        "registrationModel",
+        "parts",
+        "thumbnail",
+        "checksums"
+      ],
+      "properties": {
+        "model": { "const": "assembly.glb" },
+        "registrationModel": { "const": "registration_model.bin" },
+        "parts": { "const": "parts.json" },
+        "thumbnail": { "const": "thumbnail.png" },
+        "checksums": { "const": "checksums.json" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

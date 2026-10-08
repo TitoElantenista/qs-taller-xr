@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>QS Taller XR · IFC</title>
+</head>
+<body>
+<script src="web-ifc-api-iife.js"></script>
+<script src="qs-ifc-converter.js"></script>
+<script>
+/*
+ * Offline IFC conversion job.  The Android host intercepts every request of this page: scripts
+ * and the WASM come from the APK assets and input.ifc is the file being prepared.  Nothing here
+ * touches the network; the app does not even hold the INTERNET permission.
+ */
+(function () {
+  "use strict";
+  var CHUNK = 384 * 1024;
+
+  function toBase64(bytes, start, end) {
+    var binary = "";
+    for (var offset = start; offset < end; offset += 0x8000) {
+      binary += String.fromCharCode.apply(null, bytes.subarray(offset, Math.min(end, offset + 0x8000)));
+    }
+    return btoa(binary);
+  }
+
+  async function run() {
+    var api = null;
+    var modelID = -1;
+    try {
+      QsBridge.stage("IFC-Verarbeitung wird geladen…");
+      api = new WebIFC.IfcAPI();
+      api.SetWasmPath(new URL("./", location.href).href, true);
+      await api.Init(undefined, true);
+      api.SetLogLevel(WebIFC.LogLevel.LOG_LEVEL_OFF);
+
+      QsBridge.stage("IFC-Datei wird gelesen…");
+      var response = await fetch("input.ifc");
+      if (!response.ok) throw new Error("Die IFC-Datei konnte nicht gelesen werden.");
+      var data = new Uint8Array(await response.arrayBuffer());
+      modelID = api.OpenModel(data, { COORDINATE_TO_ORIGIN: false });
+      if (modelID < 0) throw new Error("Die Datei ist keine gültige IFC-Datei.");
+      data = null;
+
+      QsBridge.stage("Geometrie des Bauteils wird erzeugt…");
+      var result = QsIfcConverter.convert(api, WebIFC, modelID, {});
+
+      QsBridge.stage("Modell wird gespeichert…");
+      QsBridge.begin(
+        JSON.stringify({ parts: result.parts, assemblies: result.assemblies }),
+        JSON.stringify(result.stats),
+        result.glb.byteLength
+      );
+      for (var start = 0; start < result.glb.byteLength; start += CHUNK) {
+        QsBridge.chunk(toBase64(result.glb, start, Math.min(result.glb.byteLength, start + CHUNK)));
+      }
+      QsBridge.finish();
+    } catch (error) {
+      QsBridge.fail(String((error && error.message) || error));
+    } finally {
+      try { if (api && modelID >= 0) api.CloseModel(modelID); } catch (ignored) {}
+    }
+  }
+
+  window.addEventListener("error", function (event) { QsBridge.fail("Fehler der IFC-Verarbeitung: " + event.message); });
+  window.addEventListener("unhandledrejection", function (event) {
+    QsBridge.fail("Fehler der IFC-Verarbeitung: " + String((event.reason && event.reason.message) || event.reason));
+  });
+  run();
+})();
+</script>
+</body>
+</html>

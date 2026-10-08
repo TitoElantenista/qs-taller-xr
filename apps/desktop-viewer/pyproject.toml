@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qs-desktop-viewer"
+version = "0.1.0"
+description = "Local desktop web viewer for QS Baugruppen"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "ifcopenshell==0.8.5",
+  "manifold3d>=3.5,<4",
+  "numpy>=2,<3",
+  "python-multipart>=0.0.20,<1",
+  "uvicorn>=0.34,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "httpx>=0.28,<1",
+  "pytest>=8,<10",
+]
+
+[project.scripts]
+qs-viewer = "qs_desktop_viewer.cli:main"
+qs-viewer-index = "qs_desktop_viewer.index_ifc:main"
+qs-tracking-target = "qs_desktop_viewer.tracking_target:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+  "integration: exercises a real extracted IFC package",
+]

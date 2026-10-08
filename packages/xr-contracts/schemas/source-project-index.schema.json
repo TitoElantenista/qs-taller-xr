@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.qs-xr.invalid/v1/source-project-index.schema.json",
+  "title": "QS XR source project assembly index",
+  "type": "object",
+  "required": ["schemaVersion", "producer", "generatedAt", "project", "source", "assemblies"],
+  "properties": {
+    "schemaVersion": {
+      "$ref": "common.schema.json#/$defs/schemaVersion"
+    },
+    "producer": {
+      "enum": ["IFC_SCRIPT", "TEKLA_PLUGIN"]
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "project": {
+      "type": "object",
+      "required": ["name", "folder"],
+      "properties": {
+        "name": {
+          "$ref": "common.schema.json#/$defs/nonEmptyString"
+        },
+        "folder": {
+          "$ref": "common.schema.json#/$defs/nonEmptyString"
+        }
+      },
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "required": ["file", "schema", "assemblyOccurrenceCount", "positionNumberCount"],
+      "properties": {
+        "file": {
+          "$ref": "common.schema.json#/$defs/nonEmptyString"
+        },
+        "schema": {
+          "$ref": "common.schema.json#/$defs/nonEmptyString"
+        },
+        "assemblyOccurrenceCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "positionNumberCount": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "assemblies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "positionNumber",
+          "numberingStatus",
+          "drawingNumber",
+          "folder",
+          "occurrenceCount",
+          "partCount"
+        ],
+        "properties": {
+          "positionNumber": {
+            "$ref": "common.schema.json#/$defs/nonEmptyString"
+          },
+          "numberingStatus": {
+            "enum": ["CURRENT", "QUESTIONABLE"]
+          },
+          "drawingNumber": {
+            "type": ["string", "null"]
+          },
+          "folder": {
+            "$ref": "common.schema.json#/$defs/relativePath"
+          },
+          "occurrenceCount": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "partCount": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

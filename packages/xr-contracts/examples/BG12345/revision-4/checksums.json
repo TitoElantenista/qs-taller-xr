@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "algorithm": "SHA-256",
+  "files": [
+    {
+      "path": "manifest.json",
+      "sha256": "85f696989d471ae868fbeaf23a7ef104183e89589f0f938a151c5d1b1b2c8ca9",
+      "byteLength": 874
+    },
+    {
+      "path": "assembly.glb",
+      "sha256": "7fe5a6916074d3e6f609fcdeb18a142aca59e0137a818d403f4f53bed8ef1490",
+      "byteLength": 252
+    },
+    {
+      "path": "registration_model.bin",
+      "sha256": "daa88c42a238cbadb621caea3ce8da9ce69fc2af57e8a4898eb81f235377d66f",
+      "byteLength": 24624
+    },
+    {
+      "path": "parts.json",
+      "sha256": "cbb662bc27b6b988c7505405ec8be5afa1ef7b9816eb3893573083ae717bf2b1",
+      "byteLength": 919
+    },
+    {
+      "path": "thumbnail.png",
+      "sha256": "431ced6916a2a21a156e38701afe55bbd7f88969fbbfc56d7fe099d47f265460",
+      "byteLength": 68
+    }
+  ]
+}

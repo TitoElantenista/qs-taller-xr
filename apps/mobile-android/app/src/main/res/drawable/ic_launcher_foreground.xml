@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- QS Taller XR mark: a steel I-profile seen through an AR frame, with the first alignment
+     point set on one corner.  Everything stays inside the 66 dp safe zone of adaptive icons. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- AR frame corners -->
+    <path
+        android:fillColor="#52C7F5"
+        android:pathData="M25,25h14v4.5h-9.5v9.5h-4.5zM83,25v14h-4.5v-9.5h-9.5v-4.5zM25,83v-14h4.5v9.5h9.5v4.5zM83,83h-14v-4.5h9.5v-9.5h4.5z" />
+    <!-- I-profile cross section -->
+    <path
+        android:fillColor="#E4F1F7"
+        android:pathData="M37,36h34v7.5h-13v21h13v7.5h-34v-7.5h13v-21h-13z" />
+    <!-- Alignment point P1 on the upper right flange corner -->
+    <path
+        android:fillColor="#071019"
+        android:pathData="M71,36m-7.5,0a7.5,7.5 0,1 1,15 0a7.5,7.5 0,1 1,-15 0" />
+    <path
+        android:fillColor="#FFB703"
+        android:pathData="M71,36m-5,0a5,5 0,1 1,10 0a5,5 0,1 1,-10 0" />
+</vector>

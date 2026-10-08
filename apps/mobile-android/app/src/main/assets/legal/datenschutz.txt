@@ -1,0 +1,135 @@
+# Datenschutzerklärung – QS Taller XR
+
+Stand: {{privacy.date}}
+Android-App: QS Taller XR · Paketname: com.qs.tallerxr
+
+QS Taller XR unterstützt die Prüfung von Bauteilen anhand von 3D-Modellen und Augmented Reality (AR). Diese Erklärung beschreibt den Umgang mit Projekt- und Prüfdaten, Kameraaufnahmen und technischen Informationen sowie die eingebundenen Dienste.
+
+## 1. Verantwortlicher und Kontakt
+
+{{provider.identity}}
+{{provider.contact}}
+
+Bei Datenschutzfragen und zur Ausübung Ihrer Rechte wenden Sie sich bitte an die oben genannte E-Mail-Adresse.
+
+Bei betrieblicher Nutzung entscheidet Ihr Unternehmen über Zwecke, Rechtsgrundlagen und Aufbewahrung der von ihm geführten Prüfakten, insbesondere bei Beschäftigten- und Kundendaten. Der App-Anbieter erhält dadurch keinen Zugang zu diesen Akten. Für die eigenständige Verarbeitung durch Google, Huawei oder einen von Ihnen gewählten Speicher- oder Kommunikationsdienst gelten ergänzend deren Datenschutzhinweise.
+
+## 2. Lokale Daten und externe Dienste
+
+Die App benötigt kein Benutzerkonto. Das Prüferprofil ist eine lokale Namensangabe und keine Registrierung. Wir betreiben keinen Server für Ihre Projekte, Fotos oder Prüfberichte und erhalten diese Inhalte nicht automatisch. QS Taller XR enthält keine Werbung und keine vom App-Anbieter betriebenen Analyse- oder Tracking-Dienste. Daten werden vom App-Anbieter nicht verkauft.
+
+Die App selbst besitzt keine Internetberechtigung. Projektimport, IFC-Aufbereitung, 3D-Darstellung, Prüfakten und PDF-Erstellung erfolgen auf dem Gerät. Separat installierte AR-Dienste, Dokumentanbieter, Galerie-Sicherungen, Browser und E-Mail-Dienste können jedoch eigene Verbindungen herstellen. Die fehlende Internetberechtigung der App verhindert solche dienstseitigen Übermittlungen nicht.
+
+## 3. Projekte, Aufträge und Qualitätssicherung
+
+Die App verarbeitet von Ihnen ausgewählte Dateien und eingegebene Angaben zur Anzeige, Prüfung, Dokumentation und Ausgabe von Berichten. Dazu gehören:
+
+- GLB-, IFC- und .qsproject-Dateien, Dateinamen, Verweise auf ausgewählte Dateien oder Ordner, Geometrien, Positionen, Bauteilkennungen, Revisionen und Modellattribute.
+- Freiwillige Auftragsangaben: Projektname und Nummern, Auftraggeber, verantwortliche Personen, Standort, Prüfort und Bemerkungen.
+- Prüfername, Prüfstatus, Kommentare, Abweichungen, Korrekturmaßnahmen, Zuständigkeiten und Termine.
+- Prüf- und Änderungshistorie mit Datum, Uhrzeit und Zeitzone, Fotos, Ausrichtungsinformationen und archivierte Prüfberichte.
+- Lokale Kennungen und Datei-Prüfsummen zur Zuordnung von Akten und Berichtsversionen sowie Anzeige- und Bedienungseinstellungen.
+
+Sie wählen Dateien und Ordner über die Android-Dateiauswahl aus. Bei einem verknüpften Projektordner merkt sich die App den erteilten Lesezugriff. Zur Anzeige werden Daten in den app-internen Speicher übernommen; die Quelldateien im Projektordner werden nicht verändert. Ein eingegebener Standort ist eine Textangabe und wird nicht automatisch per GPS ermittelt.
+
+IFC-Dateien werden mit der mitgelieferten Bibliothek web-ifc auf dem Gerät aufbereitet. Die dafür eingesetzte Android-System-WebView lädt lokale App-Inhalte; ihre Netzwerkzugriffe sind gesperrt. Es wird kein externer Konvertierungsdienst aufgerufen.
+
+Änderungen an Prüfungen werden als neue Verlaufseinträge gespeichert. Frühere Einträge behalten ihren ursprünglichen Prüfernamen und Zeitstempel. Eine Änderung des Prüferprofils oder des aktuellen Status verändert keine bereits dokumentierte Prüfung und keinen früher ausgegebenen Bericht.
+
+## 4. Kamera, räumliche Erfassung und AR-Fotos
+
+Die AR-Ansicht benötigt Ihre Kamerafreigabe. App und AR-Dienst verarbeiten Kamerabilder und Bewegungsdaten des Geräts, um dessen Lage im Raum zu bestimmen und ein 3D-Modell auszurichten. Auf unterstützten Geräten werden auch Tiefeninformationen genutzt. Die räumliche Position in einer AR-Szene ist keine GPS-Ortung. QS Taller XR verwendet keine Gesichtsidentifikation und keine Cloud-Anker oder Geospatial-API.
+
+Beim Ausrichten kann ein Kamerabild vorübergehend eingefroren werden. Diese Arbeitsspeicheraufnahme dient der Punktmarkierung; ein fortlaufendes Video wird nicht gespeichert.
+
+Mit „AR-Foto“ speichern Sie bewusst eine Aufnahme mit der eingeblendeten 3D-Darstellung. Sie wird in der Gerätegalerie unter „Pictures/QS Taller XR“ und als unabhängige Kopie in der lokalen QS-Akte abgelegt. In der Akte werden dazu insbesondere Prüfername, Aufnahmezeitpunkt und Ausrichtungsinformationen festgehalten. Fotos können personenbezogene Informationen enthalten. Erfassen Sie nur Inhalte, zu deren Verarbeitung Sie berechtigt sind.
+
+Die Kameraberechtigung kann jederzeit in den Android-Einstellungen entzogen werden. Die 3D-Ansicht und die übrigen Funktionen ohne Kamera bleiben nutzbar.
+
+## 5. Google Play-Dienste für AR (ARCore)
+
+Auf unterstützten Geräten verwendet die App Google Play-Dienste für AR von Google. Für Nutzer im Europäischen Wirtschaftsraum ist nach Googles Datenschutzerklärung grundsätzlich Google Ireland Limited für die dort beschriebene Verarbeitung verantwortlich; weitere Google-Unternehmen können beteiligt sein.
+
+Google erklärt, dass ARCore unabhängig von der gewählten AR-Funktion Kennungen eines angemeldeten Google-Kontos beziehungsweise gerätebezogene Kennungen sowie Nutzungs-, Diagnose- und Leistungsdaten erhebt, beispielsweise API-Nutzung, Ladezeiten und Bildraten. Google verwendet diese Informationen für Analysen und zur Qualitätssicherung seines Dienstes. Diese dienstseitige Verarbeitung ist von den lokalen QS-Prüfakten zu unterscheiden.
+
+QS Taller XR aktiviert weder Cloud Anchors noch die Geospatial API. Die App richtet keinen Upload Ihrer Projektdateien, Prüfakten oder AR-Fotos an Google ein. Für Speicherung und Verwaltung der ARCore-Dienstdaten gelten Googles Hinweise und die dort beschriebenen Rechte und Einstellungen.
+
+Verpflichtender ARCore-Hinweis:
+This application runs on Google Play Services for AR (ARCore), which is provided by Google LLC and governed by the Google Privacy Policy.
+
+Google-Datenschutzerklärung: https://policies.google.com/privacy?hl=de
+Angaben zur ARCore-Datenerhebung: https://developers.google.com/ar/develop/play-safety-label
+
+## 6. Huawei AR Engine als Alternative
+
+Beim Öffnen der AR-Ansicht prüft die App, ob ein unterstützter Google- oder Huawei-AR-Dienst vorhanden ist. Auf kompatiblen Geräten kann der separat installierte Huawei AR Engine-Dienst zum Einsatz kommen. Ohne unterstützten Dienst bleibt die übrige App nutzbar.
+
+Die Huawei-Integration verwendet Kamerabilder und Bewegungs- beziehungsweise Sensordaten für die räumliche Ausrichtung. QS Taller XR aktiviert dabei keine Huawei-Anmeldung, keine Cloud-Erkennung und keine Gesichts-, Körper- oder Handerkennung. Die App übermittelt keine QS-Akten oder Projektdateien an einen Huawei-Server.
+
+Huawei nennt in seiner SDK-Erklärung insbesondere Gerätemodell, Betriebssystem, Regions- und Ländereinstellungen, Beschleunigungs-, Gyroskop-, Schwerkraft- und Magnetometersensordaten, eine Gerätekennung (UUID) sowie grundlegende App- und Nutzungsinformationen. Sie dienen der Prüfung der Gerätefähigkeiten, Lageberechnung, Betriebsanalyse und Verbesserung des Dienstes.
+
+Die unten verlinkte chinesische SDK-Erklärung beschreibt auch eine Speicherung von Betriebs- und Wartungsdaten auf Servern in China für 800 Tage. Diese Angabe darf nicht ohne Prüfung auf jede internationale Dienstversion übertragen werden. Für Ihr Gerät sind zusätzlich die Hinweise der konkret installierten Huawei-Dienstversion und Region maßgeblich. Die App selbst hat keine Netzwerkfreigabe; ein separat installierter Huawei-Dienst kann dennoch eigene Verbindungen herstellen.
+
+Huawei AR Engine: https://developer.huawei.com/consumer/en/hms/huawei-arengine/
+SDK-Datenschutzinformationen: https://developer.huawei.com/consumer/cn/doc/graphics-Guides/arenginesdk-data-security-new-0000001669266864
+Huawei-Datenschutzportal: https://consumer.huawei.com/de/privacy/
+
+## 7. PDF-Berichte, Galerie und Speicherdienste
+
+Auf Ihren Wunsch erstellt die App PDF-Prüfberichte mit Auftrags- und Bauteildaten, Prüfständen, Namen, Zeitangaben, Kommentaren und Fotos. Jede Ausgabe wird zusätzlich als eigene Version mit dem damaligen Datenstand im lokalen Berichtsarchiv gespeichert.
+
+Für die exportierte Kopie wählen Sie den Speicherort in der Android-Dateiauswahl. Ein dort gewählter Cloud- oder Unternehmensanbieter kann die Datei über seinen eigenen Dienst übertragen. Das gilt auch für Quelldateien, die Sie über einen solchen Anbieter öffnen. Eine eingerichtete Galerie-Sicherung kann AR-Fotos synchronisieren. Wir erhalten diese Dateien dadurch nicht.
+
+Empfänger von weitergegebenen Berichten und Bildern können deren Inhalte lesen. Weitere Kopien und Speicherfristen richten sich nach dem verwendeten Dienst und Ihren Freigaben. QS Taller XR löscht keine Dateien bei externen Empfängern.
+
+## 8. Diagnosen, Berechtigungen und Sicherheit
+
+Zur Untersuchung unerwarteter App-Abbrüche werden begrenzte Diagnoseinformationen lokal gespeichert: beispielsweise Gerätehersteller und -modell, Android- und App-Version, Zeitpunkt und Ursache, Speicherinformationen, Prozess- und Fehlermeldungen sowie technische Ablaufprotokolle. Fehlermeldungen können Dateinamen oder Pfade enthalten. Diese App-Diagnosen werden nicht automatisch an uns übermittelt. Bei Überschreiten des Limits von zwölf Diagnosedateien werden die ältesten entfernt.
+
+Zusätzlich zur Kamera deklariert die App „Ruhezustand verhindern“ für längere Importe und eine von einer Bibliothek eingebrachte Vibrationsberechtigung. Sie fordert keinen Mikrofon-, Kontakt- oder GPS-Zugriff an. Dateien werden über die von Ihnen gewählten Zugriffsfreigaben geöffnet; ein allgemeiner Zugriff auf den gesamten Speicher wird nicht verlangt.
+
+App-interne Daten liegen im durch Android geschützten Anwendungsbereich. Dessen automatische Android-App-Sicherung einschließlich Geräteübertragung ist in der App-Konfiguration deaktiviert. Für Galerieaufnahmen und exportierte Dateien gelten dagegen die Sicherungseinstellungen des Geräts oder Anbieters. Exportierte PDFs und Fotos erhalten durch die App keinen Passwortschutz.
+
+## 9. E-Mail-Kontakt und externe Webseiten
+
+Wenn Sie uns schreiben, verarbeiten wir Absenderadresse, Nachrichteninhalt und freiwillig beigefügte Dateien zur Bearbeitung Ihres Anliegens. Die App versendet keine E-Mail selbstständig und fügt keine Projektdateien automatisch bei. Unser Kontaktpostfach wird bei Google Gmail geführt; dabei verarbeitet Google die für den E-Mail-Dienst erforderlichen Kommunikationsdaten.
+
+Externe Links werden im Browser oder in einer passenden anderen Anwendung geöffnet. Der jeweilige Anbieter erhält dabei typischerweise Verbindungsdaten wie IP-Adresse, Zeitpunkt und Browserinformationen. Das gilt auch beim Abruf dieser Erklärung über Google Docs beziehungsweise Google Drive. Die Veröffentlichung dieser Erklärung lädt keine lokalen QS-Projekte hoch. Für den Webseitenaufruf und den Google-E-Mail-Dienst gilt ergänzend: https://policies.google.com/privacy?hl=de
+
+## 10. Rechtsgrundlagen und internationale Verarbeitung
+
+Soweit wir als App-Anbieter personenbezogene Daten zur Erfüllung des Nutzungsverhältnisses oder für vertragsbezogene Anfragen verarbeiten, gilt Art. 6 Abs. 1 Buchst. b DSGVO. Lokale Speicherung und angeforderte Gerätezugriffe dienen der Bereitstellung der von Ihnen gewählten Funktionen.
+
+Sonstige Kontaktanfragen und erforderliche Fehleranalysen beruhen auf Art. 6 Abs. 1 Buchst. f DSGVO. Unsere berechtigten Interessen sind die Beantwortung Ihrer Anfragen sowie ein sicherer, verlässlicher App-Betrieb. Gesetzlich erforderliche Aufbewahrung erfolgt nach Art. 6 Abs. 1 Buchst. c DSGVO. Soweit im Einzelfall eine Einwilligung erforderlich ist und eingeholt wird, gilt Art. 6 Abs. 1 Buchst. a DSGVO. Eine Android-Berechtigung ersetzt nicht automatisch eine datenschutzrechtlich erforderliche Einwilligung.
+
+Für betriebliche Prüfakten bestimmt Ihr Unternehmen die einschlägige Rechtsgrundlage. Für eigenständige Verarbeitungen durch Dienstanbieter ergeben sich Rechtsgrundlagen und Speicherfristen aus deren Datenschutzhinweisen.
+
+Google, Huawei sowie gewählte Cloud- oder Kommunikationsdienste können Daten auch außerhalb des Europäischen Wirtschaftsraums verarbeiten. Die konkreten Länder und gegebenenfalls eingesetzten Garantien, etwa Angemessenheitsbeschlüsse oder EU-Standardvertragsklauseln, sind den jeweiligen Anbieterhinweisen zu entnehmen. Die rein lokale Verarbeitung Ihrer QS-Akten begründet für sich genommen keine solche Übermittlung.
+
+Die Eingabe von Auftrags- und Prüfinformationen erfolgt nach Ihrem Bedarf. Ohne notwendige Modelldaten ist deren Prüfung nicht möglich; ohne Kamerafreigabe steht AR nicht zur Verfügung. QS Taller XR trifft keine ausschließlich automatisierten Entscheidungen mit rechtlicher oder vergleichbar erheblicher Wirkung und erstellt keine Werbeprofile.
+
+## 11. Speicherdauer und Löschung
+
+Projekt- und QS-Daten bleiben grundsätzlich bis zu Ihrer Löschung lokal gespeichert. Prüfakten werden nicht automatisch nach einer bestimmten Zeit gelöscht. Bei betrieblichen Daten bestimmen Sie beziehungsweise Ihr Unternehmen die erforderlichen Aufbewahrungsfristen.
+
+- „Vom Telefon entfernen“ entfernt ein Projekt aus dem aktiven lokalen Projektbestand. QS-Akten einschließlich Auftragsdaten, Verlauf, interner Fotokopien und archivierter PDFs bleiben im QS-Archiv unter Einstellungen erhalten.
+- Ein neuer Prüfstatus oder Prüfername löscht keine früheren Einträge. Archivierte PDF-Ausgaben behalten ihren damaligen Datenstand.
+- Vollständig löschen Sie die app-internen Daten durch Löschen des App-Speichers in den Android-Einstellungen oder durch Deinstallation. Dies entfernt auch Einstellungen, Prüfakten, Berichtarchive und gegebenenfalls interne Migrationskopien.
+- Quelldateien, Galerieaufnahmen, exportierte PDFs und Kopien in Cloud-Speichern oder bei Empfängern bleiben unabhängig davon bestehen. Löschen Sie diese bei Bedarf gesondert. Ein gelöschtes Galeriefoto bleibt als unabhängige Kopie in der QS-Akte erhalten.
+- Temporäre Kamerabilder werden nur für die laufende Ausrichtungsfunktion vorgehalten. Für begrenzte Diagnosedateien gilt Abschnitt 8.
+
+Kontaktkorrespondenz wird nur so lange aufbewahrt, wie es zur Bearbeitung des Anliegens und gegebenenfalls zur Erfüllung gesetzlicher Pflichten oder zur Durchsetzung beziehungsweise Abwehr von Ansprüchen erforderlich ist. Für dienstseitige Daten bei Google, Huawei und weiteren Anbietern gelten deren Speicher- und Löschregeln.
+
+## 12. Ihre Rechte
+
+Soweit die gesetzlichen Voraussetzungen erfüllt sind, haben Sie Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit (Art. 15 bis 20 DSGVO). Gegen eine Verarbeitung auf Grundlage berechtigter Interessen können Sie aus Gründen Ihrer besonderen Situation Widerspruch einlegen (Art. 21 DSGVO). Eine erteilte Einwilligung können Sie jederzeit für die Zukunft widerrufen; die Rechtmäßigkeit der bisherigen Verarbeitung bleibt unberührt.
+
+Sie können sich bei einer Datenschutzaufsichtsbehörde beschweren, insbesondere im Mitgliedstaat Ihres gewöhnlichen Aufenthalts, Ihres Arbeitsplatzes oder des vermuteten Verstoßes (Art. 77 DSGVO).
+
+Kontaktieren Sie uns unter der in Abschnitt 1 genannten E-Mail-Adresse. Wir haben keinen Fernzugriff auf ausschließlich auf Ihrem Gerät gespeicherte QS-Akten und können diese nicht aus der Ferne einsehen oder löschen. Bei betrieblichen Prüfakten wenden Sie sich gegebenenfalls zusätzlich an Ihr Unternehmen, bei dienstseitigen Daten an den jeweiligen Anbieter.
+
+## 13. Bibliotheken und Aktualisierungen
+
+Die App verwendet unter anderem AndroidX/Jetpack Compose, Kotlin, SceneView, Filament und web-ifc sowie die beschriebenen AR-SDKs. Open-Source-Lizenzen und Drittanbieterhinweise sind gesondert unter „Über die App“ → „Open-Source-Lizenzen“ aufgeführt. Lizenzhinweise sind keine Einwilligung in eine Datenübermittlung.
+
+Diese Erklärung wird angepasst, wenn sich die Datenverarbeitung oder die maßgeblichen Anforderungen ändern. Das oben genannte Datum kennzeichnet die Fassung. Erforderliche neue Berechtigungen oder Einwilligungen werden nicht allein durch eine Änderung dieses Textes ersetzt.

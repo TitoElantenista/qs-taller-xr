@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.qs-xr.invalid/v1/inspection-protocol.schema.json",
+  "title": "QS XR markerless inspection protocol",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "protocolId",
+    "projectId",
+    "assembly",
+    "operator",
+    "device",
+    "timing",
+    "registration",
+    "gravity",
+    "result",
+    "issues",
+    "photos"
+  ],
+  "properties": {
+    "schemaVersion": { "$ref": "common.schema.json#/$defs/schemaVersion" },
+    "protocolId": { "$ref": "common.schema.json#/$defs/uuid" },
+    "projectId": { "$ref": "common.schema.json#/$defs/uuid" },
+    "assembly": {
+      "type": "object",
+      "required": ["guid", "positionNumber", "revision", "modelSha256"],
+      "properties": {
+        "guid": { "$ref": "common.schema.json#/$defs/uuid" },
+        "positionNumber": { "$ref": "common.schema.json#/$defs/nonEmptyString" },
+        "revision": { "type": "integer", "minimum": 1 },
+        "modelSha256": { "$ref": "common.schema.json#/$defs/sha256" }
+      },
+      "additionalProperties": false
+    },
+    "operator": {
+      "type": "object",
+      "required": ["userId"],
+      "properties": {
+        "userId": { "$ref": "common.schema.json#/$defs/nonEmptyString" },
+        "displayName": { "$ref": "common.schema.json#/$defs/nonEmptyString" }
+      },
+      "additionalProperties": false
+    },
+    "device": {
+      "type": "object",
+      "required": ["manufacturer", "model", "platform", "appVersion"],
+      "properties": {
+        "manufacturer": { "$ref": "common.schema.json#/$defs/nonEmptyString" },
+        "model": { "$ref": "common.schema.json#/$defs/nonEmptyString" },
+        "platform": { "enum": ["ANDROID", "IOS"] },
+        "osVersion": { "$ref": "common.schema.json#/$defs/nonEmptyString" },
+        "appVersion": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "timing": {
+      "type": "object",
+      "required": ["startedAt", "completedAt", "durationSeconds"],
+      "properties": {
+        "startedAt": { "type": "string", "format": "date-time" },
+        "completedAt": { "type": "string", "format": "date-time" },
+        "durationSeconds": { "type": "number", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "registration": {
+      "type": "object",
+      "required": [
+        "method",
+        "worldFromAssembly",
+        "rmseMm",
+        "coverage",
+        "ambiguityRatio",
+        "depthPointCount",
+        "quality",
+        "capturedAt"
+      ],
+      "properties": {
+        "method": { "const": "RAW_DEPTH_PCA_ICP" },
+        "worldFromAssembly": { "$ref": "common.schema.json#/$defs/matrix4x4" },
+        "rmseMm": { "type": "number", "minimum": 0 },
+        "coverage": { "type": "number", "minimum": 0, "maximum": 1 },
+        "ambiguityRatio": { "type": "number", "minimum": 1 },
+        "depthPointCount": { "type": "integer", "minimum": 1 },
+        "quality": { "enum": ["GOOD", "ACCEPTABLE", "REJECTED"] },
+        "capturedAt": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "gravity": {
+      "type": "object",
+      "required": ["worldUp", "assemblyUpInWorld", "tiltDeg"],
+      "properties": {
+        "worldUp": { "$ref": "common.schema.json#/$defs/vector3" },
+        "assemblyUpInWorld": { "$ref": "common.schema.json#/$defs/vector3" },
+        "tiltDeg": { "type": "number", "minimum": 0, "maximum": 180 }
+      },
+      "additionalProperties": false
+    },
+    "result": { "enum": ["PASS", "REWORK", "FAIL", "INCOMPLETE"] },
+    "issues": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/issue" }
+    },
+    "photos": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/photo" }
+    },
+    "comments": { "type": "string" },
+    "signature": { "$ref": "#/$defs/signature" }
+  },
+  "additionalProperties": false,
+  "if": {
+    "properties": { "result": { "const": "INCOMPLETE" } },
+    "required": ["result"]
+  },
+  "then": {},
+  "else": { "required": ["signature"] },
+  "$defs": {
+    "issue": {
+      "type": "object",
+      "required": ["issueId", "type", "severity", "description", "photoIds"],
+      "properties": {
+        "issueId": { "$ref": "common.schema.json#/$defs/uuid" },
+        "partGuid": { "$ref": "common.schema.json#/$defs/uuid" },
+        "type": {
+          "enum": [
+            "MISSING_PART",
+            "WRONG_PART",
+            "HOLE_MISMATCH",
+            "PLATE_MISMATCH",
+            "DEFORMATION",
+            "SURFACE_DEFECT",
+            "OTHER"
+          ]
+        },
+        "severity": { "enum": ["MINOR", "MAJOR", "CRITICAL"] },
+        "description": { "$ref": "common.schema.json#/$defs/nonEmptyString" },
+        "photoIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "common.schema.json#/$defs/uuid" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "photo": {
+      "type": "object",
+      "required": ["photoId", "path", "sha256", "takenAt"],
+      "properties": {
+        "photoId": { "$ref": "common.schema.json#/$defs/uuid" },
+        "path": { "$ref": "common.schema.json#/$defs/relativePath" },
+        "sha256": { "$ref": "common.schema.json#/$defs/sha256" },
+        "takenAt": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    "signature": {
+      "type": "object",
+      "required": ["signedBy", "signedAt", "method", "value"],
+      "properties": {
+        "signedBy": { "$ref": "common.schema.json#/$defs/nonEmptyString" },
+        "signedAt": { "type": "string", "format": "date-time" },
+        "method": { "enum": ["TYPED_NAME", "DRAWN", "DEVICE_CREDENTIAL"] },
+        "value": { "$ref": "common.schema.json#/$defs/nonEmptyString" }
+      },
+      "additionalProperties": false
+    }
+  }
+}
